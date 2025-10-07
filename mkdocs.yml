@@ -1,0 +1,6 @@
+site_name: Jonathan Baum M.Sc.
+
+markdown_extensions:
+  - meta
+  - toc:
+      permalink: true
