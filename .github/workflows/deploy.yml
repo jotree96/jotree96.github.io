@@ -25,10 +25,12 @@ jobs:
           pip install mkdocs-material
           pip install mkdocs-git-revision-date-localized-plugin mkdocs-git-committers-plugin-2 || true
 
-      - name: Build and deploy
+      - name: Build site
+        run: mkdocs build --clean
+
+      - name: Deploy to GitHub Pages
         uses: peaceiris/actions-gh-pages@v4
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           publish_dir: ./site
           enable_jekyll: false
-
