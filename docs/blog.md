@@ -1,4 +1,0 @@
-# Beiträge
-
-Liste aller Beiträge
-
