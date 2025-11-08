@@ -4,4 +4,4 @@
 
 ## [Veröffentlichungen]()
 
-## [Blog-Beiträge]()
+## [Beiträge]()
