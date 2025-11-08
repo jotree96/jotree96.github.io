@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Jonathan’s Site</title>
+  <link rel="stylesheet" href="style.css" />
+  <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+</head>
+<body>
+  <header>
+    <h1><a href="#">Beiträge von Jonathan Baum</a></h1>
+    <nav>
+      <a href="#">Index</a>
+      <a href="#ueber">Über mich</a>
+      <a href="#publikationen">Publikationsliste</a>
+    </nav>
+  </header>
+
+  <main id="content">Loading...</main>
+
+  <script>
+    // Markdown pages (outside of posts)
+    const staticPages = {
+      ueber: "ueber.md",
+      publikationen: "veroeffentlichungen.md"
+    };
+
+    // Blog posts
+    const posts = {
+    "iPads-an-Schulen": { title: "2025-09-29 - iPads an Schulen", file: "posts/2025-09-29-iPads-gehoeren-nicht-an-schulen.md"},
+    "One-Life": { title: "2024-07-04 - One Life vs. Work Life", file: "posts/2024-07-04-one-life.md"},
+    "Tools-I-use": { title: "2024-06-29 - Die besten Tools für einen Workflow im Computer-Alltag eines Studenten im MINT-Bereich ", file: "posts/2024-06-29-tools-i-use.md"},
+    "Data-Literacy-Beitrag": { title: "2024-06-29 - Anpassung der Zotero Gruppenbibliografie Data Literacy", file: "posts/2024-06-29-data-literacy-beitrag.md"},
+    "Masterarbeit": { title: "2024-05-22 - WordNet-Editor und Masterarbeit", file: "posts/2024-06-29-data-literacy-beitrag.md"},
+    "Strukturiertes-Studieren": { title: "2024-03-03 - Erfolgreich lernen im Studium (und darüber hinaus)", file: "posts/2024-03-03-structured-studying.md"},
+    "archive-urls": { title: "2024-03-03 - Archivierung von URLs in Wissenschaftlichen Arbeiten", file: "posts/2024-03-03-archive-urls.md"}
+    };
+
+    // Load Markdown file
+    async function loadMarkdown(path) {
+      try {
+        const res = await fetch(path);
+        if (!res.ok) throw new Error("File not found");
+        const md = await res.text();
+        document.getElementById("content").innerHTML = marked.parse(md);
+        window.scrollTo(0, 0);
+      } catch {
+        document.getElementById("content").innerHTML = "<p>Could not load content.</p>";
+      }
+    }
+
+    // Show all posts (home page)
+    function showIndex() {
+      const list = Object.entries(posts)
+        .map(([key, post]) => `<li><a href="#${key}">${post.title}</a></li>`)
+        .join("");
+      document.getElementById("content").innerHTML = `
+        <h1>Beiträge</h1>
+        <ul>${list}</ul>
+      `;
+    }
+
+    // Handle navigation
+    function handleHashChange() {
+      const hash = window.location.hash.slice(1);
+      if (!hash) return showIndex();
+      if (staticPages[hash]) return loadMarkdown(staticPages[hash]);
+      if (posts[hash]) return loadMarkdown(posts[hash].file);
+      showIndex();
+    }
+
+    window.addEventListener("hashchange", handleHashChange);
+    window.addEventListener("DOMContentLoaded", handleHashChange);
+  </script>
+</body>
+</html>

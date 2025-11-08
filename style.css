@@ -1,0 +1,47 @@
+body {
+  font-family: system-ui, sans-serif;
+  line-height: 1.6;
+  max-width: 800px;
+  margin: 40px auto;
+  padding: 0 1rem;
+  color: #222;
+  background: #fafafa;
+}
+
+nav {
+  margin-bottom: 2rem;
+  text-align: center;
+}
+
+nav a {
+  margin: 0 1rem;
+  text-decoration: none;
+  color: #0077cc;
+  font-weight: bold;
+}
+
+nav a:hover {
+  text-decoration: underline;
+}
+
+pre {
+  background: #eee;
+  padding: 1rem;
+  overflow-x: auto;
+  border-radius: 6px;
+}
+
+code {
+  background: #eee;
+  padding: 2px 4px;
+  border-radius: 4px;
+}
+
+blockquote {
+  border-left: 4px solid #0077cc;
+  padding: 0.5rem 1rem;
+  margin: 1.5rem 0;
+  color: #555;
+  background: #f0f7ff;
+  font-style: italic;
+}
