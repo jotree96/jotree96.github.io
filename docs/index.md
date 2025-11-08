@@ -2,6 +2,6 @@
 
 ## [Über mich](/ueber)
 
-## [Veröffentlichungen]()
+## [Veröffentlichungen](/veroeffentlichungen)
 
-## [Beiträge]()
+## [Beiträge](/blog)
