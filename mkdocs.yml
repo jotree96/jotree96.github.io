@@ -1,7 +1,0 @@
-site_name: Jonathan Baum M.Sc.
-site_url: https://jotree96.github.io/
-
-markdown_extensions:
-  - meta
-  - toc:
-      permalink: true
