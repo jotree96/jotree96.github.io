@@ -20,7 +20,7 @@ Matthias Jung hat das auf seinem Blog ganz passend formuliert:https://blog.matth
 
 Wäre eine Lösung nicht einfach eine Prägung? (siehe KI-generiertes Bild)
 
-![Banane mit Prägung](../assets/Banane-mit-Prägung.png)
+<img src="../assets/Banane-mit-Prägung.png" alt="Banane mit Prägung" width="800">
 
 
 
