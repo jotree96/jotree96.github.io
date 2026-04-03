@@ -1,6 +1,6 @@
 # Brother MFC 7440N unter MacOS zum Laufen bringen
 
-Datum: 03.04.2026
+> Datum: 03.04.2026
 
 Der mittlerweile doch sehr alte Laserdrucker Brother MFC 7440N lief bei mir immer unter Linux.
 
@@ -14,15 +14,19 @@ Das Problem: ```brlaser``` ist unter MacOS nicht verfügbar und muss selbst geba
 
 ### Quellcode holen
 ```git clone https://github.com/Owl-Maintain/brlaser.git```
+
 ```cd brlaser```
 
 ### Bauen
 ```mkdir build && cd build```
+
 ```cmake ..```
+
 ```make```
 
 ### Filter an den richtigen Ort kopieren (CUPS-Filter-Verzeichnis auf macOS)
 ```sudo cp rastertobrlaser /usr/libexec/cups/filter/```
+
 ```sudo chmod 755 /usr/libexec/cups/filter/rastertobrlaser```
 
 Falls du keine passende PPD-Datei hast, kannst du dir folgende unter ```MFC7440N.ppd``` speichern:
